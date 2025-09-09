@@ -246,11 +246,6 @@
       const currentBalance = snap.exists() ? (snap.data().balance ?? 0) : 0;
       const newBalance = type === "deposit" ? currentBalance + amount : currentBalance - amount;
 
-      if (type === "withdrawal" && amount > currentBalance) {
-        alert("Insufficient funds in the pool.");
-        return;
-      }
-
       await addDoc(transactionsCol, { user, amount, date, type, note });
       await updateDoc(poolRef, { balance: newBalance });
 
