@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>419 Pool Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div id="pool-balance">Pool: $0.00</div>
+
+      <div class="chart-panel">
+        <div id="chart-tooltip"></div>
+        <canvas id="pool-chart" width="360" height="180"></canvas>
+      </div>
+
+      <div class="row">
+        <input type="text" id="new-user" placeholder="Add new user" />
+        <button id="add-user-btn">Add</button>
+      </div>
+
+      <select id="user-select"></select>
+      <input type="number" id="amount" placeholder="Amount" step="0.01" />
+      <input type="date" id="date" />
+
+      <select id="transaction-type">
+        <option value="deposit">Deposit</option>
+        <option value="withdrawal">Withdrawal</option>
+      </select>
+
+      <textarea id="note" placeholder="Add a note (optional)"></textarea>
+      <button id="add-transaction-btn">Add Transaction for User</button>
+    </div>
+
+    <div class="sidebar">
+      <h1>Transactions</h1>
+      <label for="filter-user">Filter by user:</label>
+      <select id="filter-user">
+        <option value="all">All Users</option>
+      </select>
+      <div class="transactions-scroll" id="transactions-list"></div>
+    </div>
+  </div>
+
+  <script type="module" src="tracker.js"></script>
+</body>
+</html>
